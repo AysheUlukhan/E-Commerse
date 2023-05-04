@@ -5,3 +5,15 @@
 .custom-img{
   background-image: url('../assets/img/bg-img.svg');
 }
+.custom-bg-img{
+  background-image: url('../assets/img/photo.svg');
+}
+.outfits-foto1{
+  background-image: url('../assets/img/outfits-foto1.svg');
+}
+.outfits-foto2{
+  background-image: url('../assets/img/outfits-foto2.svg');
+}
+.outfits-foto3{
+  background-image: url('../assets/img/outfits-foto3.svg');
+}
