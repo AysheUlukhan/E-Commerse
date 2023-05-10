@@ -2,6 +2,11 @@ import Link from 'next/link'
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import {AiOutlineMenu, AiOutlineClose} from 'react-icons/ai'
+import Image from 'next/image'
+import personicon from '../../assets/icons/ion_person.svg'
+import searchicon from '../../assets/icons/ion_search.svg'
+import hearticon from '../../assets/icons/ion_heart.svg'
+import carticon from '../../assets/icons/ion_cart.svg'
 
 
 const Navbar = () => {
@@ -29,15 +34,11 @@ const Navbar = () => {
 
   return (
 
-
-
-
-
     <div style={{backgroundColor:`${color}`}} className='fixed left-0 top-0 w-full z-10 ease-in duration-300 border-b border-b-white'>
         <div className='m-auto flex justify-around items-center text-white'>
             <ul className='flex sm:hidden xs:hidden xxs:hidden uppercase' style={{color:`${textColor}`}}>
                 <li>
-                    <Link href='/home'>Home</Link>
+                    <Link href='/'>Home</Link>
                 </li>
                 <li className='ml-32'>
                     <Link href='/about'>About</Link>
@@ -53,12 +54,19 @@ const Navbar = () => {
                 </li>
             </ul>
             <div>
-              <h2 style={{color:`${textColor}`}} className='text-30 font-medium pt-28 pb-27'>Swanky<span className='font-bold text-venetian-red'>.</span></h2>
+              <h2 style={{color:`${textColor}`}} className='text-30 font-medium pt-28 pb-27 uppercase'>Swanky<span className='font-bold text-venetian-red'>.</span></h2>
             </div>
 
             <div style={{color:`${textColor}`}} className='flex sm:hidden xs:hidden xxs:hidden'>
-              <p>Login</p>
-              <p className='ml-33'>Search</p>
+              <Image src={personicon} />
+              <p className='uppercase pl-6 pr-33'>Login</p>
+              <Image src={searchicon}/>
+              <p className='uppercase pl-6 pr-33'>Search...</p>
+              <Image src={hearticon}/>
+              <p className='pr-33 pl-6'>(0)</p>
+              <Image src={carticon}/>
+              <p className='pl-6'>(0)</p>
+
             </div>
 
         {/* Mobile Button */}
@@ -69,9 +77,9 @@ const Navbar = () => {
         </div>
         {/* Mobile Menu */}
         <div className={nav ? 'lg:hidden xl:hidden 2xl:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full h-screen bg-white text-black text-center easy-in duration-300 ' : 'sm:hidden absolute top-0 left-[-100%] right-0 bottom-0 flex justify-center items-center w-full h-screen bg-white text-black text-center easy-in duration-300 '}>
-        <ul>
+        <ul className='uppercase'>
                 <li className='font-semibold text-20 p-4'>
-                    <Link href='/home'>Home</Link>
+                    <Link href='/'>Home</Link>
                 </li>
                 <li className='font-semibold text-20 p-4'>
                     <Link href='/about'>About</Link>
@@ -89,14 +97,6 @@ const Navbar = () => {
 
 
         </div>
-        </div>
-
-        <div>
-            
-        </div>
-
-        <div>
-            
         </div>
     </div>
   )
