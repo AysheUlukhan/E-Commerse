@@ -1,7 +1,9 @@
 import Link from 'next/link'
 import React, { useEffect } from 'react'
 import { useState } from 'react';
-import {AiOutlineMenu, AiOutlineClose} from 'react-icons/ai'
+import {AiOutlineMenu, AiOutlineClose, AiTwotoneHeart, AiOutlineShoppingCart} from 'react-icons/ai'
+import {BsFillCartFill,BsSearch} from 'react-icons/bs'
+import {FaUserAlt} from 'react-icons/fa'
 import Image from 'next/image'
 import personicon from '../../assets/icons/ion_person.svg'
 import searchicon from '../../assets/icons/ion_search.svg'
@@ -25,8 +27,8 @@ const Navbar = () => {
           setColor('white');
           setTextColor('black');
         }else{
-          setColor('transparent');
-          setTextColor('white');
+          setColor('white');
+          setTextColor('black');
         }
       };
       window.addEventListener('scroll',changeColor);
@@ -34,11 +36,22 @@ const Navbar = () => {
 
   return (
 
-    <div style={{backgroundColor:`${color}`}} className='fixed left-0 top-0 w-full z-10 ease-in duration-300 border-b border-b-white'>
-        <div className='m-auto flex justify-around items-center text-white'>
-            <ul className='flex sm:hidden xs:hidden xxs:hidden uppercase' style={{color:`${textColor}`}}>
+    <div style={{backgroundColor:`${color}`}} className='sticky left-0 top-0 w-full z-10 ease-in duration-300 border-b border-b-white'>
+        <div className='m-auto flex justify-around items-center text-black'>
+            <ul className='flex sm:hidden xs:hidden xxs:hidden md:hidden uppercase' style={{color:`${textColor}`}}>
                 <li>
                     <Link href='/'>Home</Link>
+                   <ul className='border border-black p-20 absolute bg-white capitalize text-gray hidden'>
+                    <li>
+                      <Link href='/shop-single'>Shop Single</Link>
+                    </li>
+                    <li className='pt-5 '>
+                      <Link href='/cart'>Cart</Link>
+                    </li>
+                    <li className='pt-5 '>
+                      <Link href='/account'>My account</Link>
+                    </li>
+                   </ul>
                 </li>
                 <li className='ml-32'>
                     <Link href='/about'>About</Link>
@@ -47,7 +60,7 @@ const Navbar = () => {
                     <Link href='/shop'>Shop</Link>
                 </li>
                 <li className='ml-32'>
-                    <Link href='/blogs'>Blogs</Link>
+                    <Link href='/blog'>Blogs</Link>
                 </li>
                 <li className='ml-32'>
                     <Link href='/contact'>Contact</Link>
@@ -57,15 +70,23 @@ const Navbar = () => {
               <h2 style={{color:`${textColor}`}} className='text-30 font-medium pt-28 pb-27 uppercase'>Swanky<span className='font-bold text-venetian-red'>.</span></h2>
             </div>
 
-            <div style={{color:`${textColor}`}} className='flex sm:hidden xs:hidden xxs:hidden'>
-              <Image src={personicon} />
+            <div style={{color:`${textColor}`}} className='flex items-center sm:hidden xs:hidden xxs:hidden md:hidden'>
+            
+              <a href='/account' className='cursor-pointer flex items-center'><FaUserAlt />
+              
               <p className='uppercase pl-6 pr-33'>Login</p>
-              <Image src={searchicon}/>
+              </a>
+              
+              <BsSearch/>
+              
               <p className='uppercase pl-6 pr-33'>Search...</p>
-              <Image src={hearticon}/>
+              {/* <Image src={"/heart.svg"} width={20} height={14}/> */}
+              <AiTwotoneHeart/>
               <p className='pr-33 pl-6'>(0)</p>
-              <Image src={carticon}/>
+              <a href='/cart' className='cursor-pointer flex items-center'><BsFillCartFill/>
+              
               <p className='pl-6'>(0)</p>
+              </a>
 
             </div>
 

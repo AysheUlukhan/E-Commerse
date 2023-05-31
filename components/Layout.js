@@ -1,16 +1,24 @@
 import React from 'react'
 import Navbar from './navbar/navbar'
 import Footer from './footer/footer'
+// import Navbar from './Navbar'
+import { CartProvider } from 'react-use-cart'
 
 const Layout = ({children}) => {
   return (
-   <React.Fragment>
+   <>
+   <CartProvider>
+
+
     <Navbar/>
+    {/* <Navbar/> */}
     <main>
         {children}
     </main>
     <Footer/>
-   </React.Fragment>
+   </CartProvider>
+   
+   </>
   )
 }
 

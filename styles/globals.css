@@ -5,6 +5,15 @@
 .custom-img{
   background-image: url('../assets/img/bg-img.svg');
 }
+.custom-about-bg{
+  background-image: url('../assets/img/a-bg.jpg');
+}
+.custom-shop-bg{
+  background-image: url('../assets/img/slide-foto1.svg')
+}
+.custom-blog-bg{
+  background-image: url('../assets/img/blog-bg.jpg')
+}
 .custom-bg-img{
   background-image: url('../assets/img/photo.svg');
 }

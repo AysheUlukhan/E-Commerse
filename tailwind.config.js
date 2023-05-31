@@ -10,6 +10,14 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    variants:{
+      extend:{
+        display:['group-focus'],
+        opacity:['group-focus'],
+        inset:['group-focus']
+      },
+
+    },
     fontSize: {
       sans: ['Syne', 'sans-serif']
     },
@@ -308,9 +316,14 @@ module.exports = {
       'UCLA-gold': '#FFB600',
       seashell: '#FFEEEC',
       honeydew: '#E7F9EF',
-      pastelblue: '#AFBBCA'
+      pastelblue: '#AFBBCA',
+      'white-chocolate': '#F1E4E1',
+      isabelline: '#F6ECEA',
+      'white-coffee': '#E5D8D5',
+      granny: '#94E1A0'
       
     },
+   
     height: {
       auto: "auto",
       0: "0",
