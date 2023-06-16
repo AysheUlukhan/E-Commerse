@@ -11,7 +11,6 @@ const Cart = () => {
     const [showModal, setShowModal] = useState(false);
 
 
-
     const handleClickDelete = (id) => {
         setDeleteId(id)
         setShowModal(true)
@@ -95,7 +94,6 @@ const Cart = () => {
         </>
       ) : null}
 
-
             <div className='text-center bg-white-chocolate py-50'>
                 <h2 className='text-52 xs:text-32 sm:text-32 xxs:text-32 font-semibold'>Cart</h2>
                 <p className='flex justify-center items-center font-medium'>Home <Image src='/ic_baseline-keyboard-arrow-right.svg' width={20} height={10} /> <span>Cart</span></p>
@@ -156,7 +154,7 @@ const Cart = () => {
                                                 <td className="whitespace-nowrap px-6 py-4 text-venetian-red font-semibold text-20 visible sm:hidden xs:hidden xxs:hidden">
                                                     {item.price}
                                                 </td>
-                                                <td className="whitespace-nowrap px-6 py-4">
+                                                <td className=" px-6 py-4">
                                                     <Image alt='/' src={close} onClick={()=>handleClickDelete(item.id)}  className='cursor-pointer 2xl:w-10 xl:w-10 lg:w-10 md:w-10 sm:w-5 xs:w-5 xxs:w-5' />
                                                 </td>
                                             </tr>

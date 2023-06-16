@@ -34,9 +34,7 @@ const Shop = () => {
         }
     }
 
-
     const [search, setSearch] = useState('');
-    console.log(search)
 
     const [showModal, setShowModal] = useState(false);
     const [count, setCount] = useState(0);
@@ -45,28 +43,31 @@ const Shop = () => {
         setShowModal(true)
     }
 
-    const [cartItem, setCartItem] = useState([])
+    const [cart, setCart] = useState([]);
 
-    const handleAddProduct = (product) => {
-        const ProductExist = cartItem.find((item) => item.id === product.id);
-        if (ProductExist) {
-            setCartItem(cartItem.map((item) => item.id === product.id ?
-                { ...ProductExist, counts: ProductExist.counts + 1 } : item)
-            );
+    const addToCart = (product, id, price, title) => {
+        const newItem = { ...product, amount: 1 }
+        const cartItem = cart.find(item => {
+            return item.id === id;
+        })
+        if (cartItem) {
+            const newCart = [...cart].map(item => {
+                if (item.id === id) {
+                    return { ...item, amount: cartItem.amount + 1 }
+                } else {
+                    return item;
+                }
+            });
+            setCart(newCart);
         } else {
-            setCartItem([...cartItem, {...product, counts: 1 }])
+            setCart([...cart, newItem])
         }
-
-
-    }
-
-
-
+    };
+    
+    console.log(cart)
     SwiperCore.use([Autoplay])
     return (
         <>
-
-
             {showModal ? (
                 <>
                     <div
@@ -193,8 +194,8 @@ const Shop = () => {
                                             <div class="relative overflow-hidden">
                                                 <Image class="object-cover" width={400} height={200} src={post.image} alt="" />
                                                 <div class="absolute gap-x-2 h-full w-full bg-black/20 flex items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                                                    <button onClick={()=> handleAddProduct(post)} class="bg-white text-black py-10 px-50 uppercase" >Add to cart</button>
-                                                    <a href='#' onClick={handleClickModal} class="bg-white text-black py-12 px-10"><Image src={"ion_scan-sharp.svg"} width={20} height={20} /></a>
+                                                    <button onClick={() => addToCart(product, post.id, post.price, post.title)} class="bg-white text-black py-10 px-50 md:py-5 md:px-25 uppercase" >Add to cart</button>
+                                                    <a href='#' onClick={handleClickModal} class="bg-white text-black py-12 px-10 md:py-6 md:px-5"><Image src={"ion_scan-sharp.svg"} width={20} height={20} /></a>
                                                 </div>
                                             </div>
                                         </div>
